@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search History - Phishing URL Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>PhishDetect</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="/about"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="/history" class="active"><i class="fas fa-history"></i> History</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container history-container">
+        <h1><i class="fas fa-history"></i> Search History</h1>
+        
+        {% if history %}
+        <div class="history-header">
+            <p>Your last {{ history|length }} URL checks</p>
+            <button onclick="clearHistory()" class="btn-clear-history">
+                <i class="fas fa-trash-alt"></i> Clear History
+            </button>
+        </div>
+        
+        <div class="history-list">
+            {% for item in history %}
+            <div class="history-item {{ item.result }}">
+                <div class="history-icon">
+                    <i class="fas fa-link"></i>
+                </div>
+                <div class="history-details">
+                    <div class="history-url">{{ item.url }}</div>
+                    <div class="history-meta">
+                        <span class="history-result {{ item.result }}">
+                            <i class="fas {% if item.result == 'phishing' %}fa-exclamation-triangle{% else %}fa-check-circle{% endif %}"></i>
+                            {{ item.result|title }}
+                        </span>
+                        <span class="history-confidence">
+                            <i class="fas fa-chart-line"></i> Confidence: {{ item.confidence }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="empty-history">
+            <i class="fas fa-history fa-4x"></i>
+            <h3>No History Yet</h3>
+            <p>Start checking URLs to see your search history here</p>
+            <a href="/" class="btn-check-url">
+                <i class="fas fa-search"></i> Check a URL
+            </a>
+        </div>
+        {% endif %}
+        
+        <a href="/" class="btn-back">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 PhishDetect - Machine Learning Based Phishing URL Detection System</p>
+            <p>Ayush Kumar | Pragati | Shriyanshi | Kiran Gond | CSE Department</p>
+        </div>
+    </footer>
+
+    <script>
+        function clearHistory() {
+            if (confirm('Are you sure you want to clear all history?')) {
+                fetch('/clear-history', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        window.location.reload();
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

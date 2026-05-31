@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing URL Detector - Check Website Safety</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>PhishDetect</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="/about"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="/history"><i class="fas fa-history"></i> History</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>AI-Powered Phishing URL Detection</h1>
+            <p>Protect yourself from cyber threats with our advanced machine learning model. Check any URL instantly for phishing attempts.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Stats Section -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <i class="fas fa-robot"></i>
+                <div class="stat-info">
+                    <h3>96%</h3>
+                    <p>Accuracy Rate</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-bolt"></i>
+                <div class="stat-info">
+                    <h3>Real-time</h3>
+                    <p>Analysis</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-shield"></i>
+                <div class="stat-info">
+                    <h3>35+</h3>
+                    <p>Features Analyzed</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- URL Input Form -->
+        <div class="form-container">
+            <h2><i class="fas fa-search"></i> Check a URL</h2>
+            <p>Enter any website URL to check if it's safe or malicious</p>
+            
+            <form action="/predict" method="POST" id="urlForm">
+                <div class="input-group">
+                    <i class="fas fa-link input-icon"></i>
+                    <input type="url" 
+                           name="url" 
+                           id="urlInput"
+                           placeholder="https://example.com" 
+                           required
+                           pattern="https?://.+"
+                           title="Please enter a valid URL starting with http:// or https://">
+                </div>
+                
+                <div class="example-urls">
+                    <p>Try examples:</p>
+                    <button type="button" class="example-btn" onclick="fillExample('https://secure-paypal-verify.com')">
+                        <i class="fas fa-exclamation-triangle"></i> suspicious site
+                    </button>
+                    <button type="button" class="example-btn" onclick="fillExample('https://github.com')">
+                        <i class="fab fa-github"></i> github.com
+                    </button>
+                </div>
+                
+                <button type="submit" class="btn-submit" id="submitBtn">
+                    <span class="btn-text">Check URL</span>
+                    <span class="btn-loader" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i> Analyzing...
+                    </span>
+                </button>
+            </form>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features-section">
+            <h2>How It Works</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-magic"></i>
+                    <h3>Feature Extraction</h3>
+                    <p>Analyzes 35+ URL characteristics including length, special characters, and patterns</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>ML Classification</h3>
+                    <p>Uses Random Forest algorithm trained on 11,430 URLs with 96% accuracy</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Real-time Results</h3>
+                    <p>Get instant results with confidence score and detailed analysis</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-history"></i>
+                    <h3>Search History</h3>
+                    <p>Track your URL checks and maintain search history</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 PhishDetect - Machine Learning Based Phishing URL Detection System</p>
+            <p>Ayush Kumar | Pragati | Shriyanshi | Kiran Gond | CSE Department</p>
+        </div>
+    </footer>
+
+    <script>
+        function fillExample(url) {
+            document.getElementById('urlInput').value = url;
+        }
+
+        document.getElementById('urlForm').addEventListener('submit', function() {
+            document.querySelector('.btn-text').style.display = 'none';
+            document.querySelector('.btn-loader').style.display = 'inline-block';
+            document.querySelector('.btn-submit').disabled = true;
+        });
+    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

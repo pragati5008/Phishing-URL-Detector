@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Error - Phishing URL Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container" style="text-align: center; padding: 100px 20px;">
+        <i class="fas fa-exclamation-triangle" style="font-size: 5rem; color: var(--warning-color);"></i>
+        <h1>System Not Ready</h1>
+        <p>{{ error }}</p>
+        {% if details %}
+        <p style="color: #666; font-size: 0.9rem;">{{ details }}</p>
+        {% endif %}
+        <div style="margin-top: 30px;">
+            <a href="/" class="btn-check-another">
+                <i class="fas fa-redo"></i> Try Again
+            </a>
+        </div>
+    </div>
+</body>
+</html>

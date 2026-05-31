@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Result - Phishing URL Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>PhishDetect</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/history">History</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container result-container">
+        <h1>URL Analysis Result</h1>
+        
+        {% if error %}
+        <div class="alert alert-danger">
+            <i class="fas fa-exclamation-circle"></i>
+            <p>{{ error }}</p>
+            <a href="/" class="btn-back">Try Again</a>
+        </div>
+        {% else %}
+        
+        <div class="result-card {{ alert_class }}">
+            <div class="result-header">
+                <i class="fas {{ icon }} result-icon"></i>
+                <h2>{{ message }}</h2>
+            </div>
+            
+            <div class="url-display">
+                <strong>Analyzed URL:</strong>
+                <p>{{ url }}</p>
+            </div>
+            
+            <div class="confidence-meter">
+                <div class="meter-label">
+                    <span>Confidence Score</span>
+                    <span class="confidence-value">{{ confidence }}%</span>
+                </div>
+                <div class="meter-bar">
+                    <div class="meter-fill" style="width: {{ confidence }}%"></div>
+                </div>
+            </div>
+            
+            <div class="result-actions">
+                <a href="/" class="btn-check-another">
+                    <i class="fas fa-search"></i> Check Another URL
+                </a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 PhishDetect - Machine Learning Based Phishing URL Detection System</p>
+        </div>
+    </footer>
+</body>
+</html>

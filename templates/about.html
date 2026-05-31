@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Phishing URL Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>PhishDetect</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="/about" class="active"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="/history"><i class="fas fa-history"></i> History</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container about-container">
+        <h1>About the Project</h1>
+        
+        <div class="about-card">
+            <h2><i class="fas fa-project-diagram"></i> Project Overview</h2>
+            <p>The <strong>Machine Learning Based Phishing URL Detection System</strong> is designed to protect users from phishing attacks by analyzing website URLs and identifying potentially malicious sites. Using advanced machine learning algorithms, the system examines various URL characteristics to determine the likelihood of a website being a phishing attempt.</p>
+        </div>
+        
+        <div class="about-card">
+            <h2><i class="fas fa-bullseye"></i> Objectives</h2>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Detect phishing URLs with high accuracy using machine learning</li>
+                <li><i class="fas fa-check-circle"></i> Provide real-time security warnings to users</li>
+                <li><i class="fas fa-check-circle"></i> Increase awareness of cybersecurity threats</li>
+                <li><i class="fas fa-check-circle"></i> Offer a simple, user-friendly web interface</li>
+            </ul>
+        </div>
+        
+        <div class="about-card">
+            <h2><i class="fas fa-cogs"></i> How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>URL Input</h3>
+                        <p>User enters a website URL into the system</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Feature Extraction</h3>
+                        <p>System extracts 35+ features from the URL including length, special characters, patterns, and structure</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>ML Prediction</h3>
+                        <p>Random Forest model analyzes features and predicts whether URL is phishing or legitimate</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Result Display</h3>
+                        <p>User receives instant result with confidence score and safety recommendations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="about-card">
+            <h2><i class="fas fa-database"></i> Dataset & Model</h2>
+            <p>The system uses a comprehensive phishing URL dataset containing:</p>
+            <ul>
+                <li><strong>11,430 URLs</strong> with balanced phishing and legitimate samples</li>
+                <li><strong>87 extracted features</strong> per URL</li>
+                <li><strong>Random Forest classifier</strong> with 96% accuracy</li>
+                <li>Features include URL structure, syntax patterns, and content analysis</li>
+            </ul>
+        </div>
+        
+        <div class="about-card">
+            <h2><i class="fas fa-layer-group"></i> System Architecture</h2>
+            <p>The application follows a three-tier architecture:</p>
+            <div class="architecture">
+                <div class="tier">
+                    <i class="fas fa-desktop"></i>
+                    <h4>Presentation Layer</h4>
+                    <p>HTML, CSS, JavaScript</p>
+                </div>
+                <div class="tier">
+                    <i class="fas fa-server"></i>
+                    <h4>Application Layer</h4>
+                    <p>Flask (Python)</p>
+                </div>
+                <div class="tier">
+                    <i class="fas fa-brain"></i>
+                    <h4>ML Detection Engine</h4>
+                    <p>Scikit-learn, Random Forest</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="about-card">
+            <h2><i class="fas fa-user-graduate"></i> Developer</h2>
+            <div class="developer-info">
+                <p><strong>Ayush Kumar | Pragati | Shriyanshi | Kiran Gond </strong></p>
+                <p>Software Engineering Project</p>
+                <p>Department of Computer Science and Engineering</p>
+                <p>March 2026</p>
+            </div>
+        </div>
+        
+        <div class="about-card">
+            <h2><i class="fas fa-code-branch"></i> Technologies Used</h2>
+            <div class="tech-stack">
+                <span class="tech-tag"><i class="fab fa-html5"></i> HTML5</span>
+                <span class="tech-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+                <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
+                <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+                <span class="tech-tag"><i class="fas fa-flask"></i> Flask</span>
+                <span class="tech-tag"><i class="fas fa-brain"></i> Scikit-learn</span>
+                <span class="tech-tag"><i class="fas fa-table"></i> Pandas</span>
+                <span class="tech-tag"><i class="fas fa-calculator"></i> NumPy</span>
+            </div>
+        </div>
+        
+        <div class="about-card">
+            <h2><i class="fas fa-shield-alt"></i> Cybersecurity Awareness</h2>
+            <p>Phishing attacks are one of the most common cybersecurity threats where attackers create fake websites that mimic legitimate ones to steal sensitive information. This project aims to help users identify potentially malicious URLs before visiting them, making the internet a safer place.</p>
+        </div>
+        
+        <a href="/" class="btn-back-home">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 PhishDetect - Machine Learning Based Phishing URL Detection System</p>
+            <p>Ayush Kumar | Pragati | Shriyanshi | Kiran Gond | CSE Department</p>
+        </div>
+    </footer>
+</body>
+</html>

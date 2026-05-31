@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: phishing-url-detection
+    runtime: docker
+    repo: https://github.com/Ayush-Kumar-45/Phishing-URL-Detection
+    branch: master
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: ./
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: PYTHONUNBUFFERED
+        value: true
+      - key: FLASK_ENV
+        value: production
