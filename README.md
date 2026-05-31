@@ -281,7 +281,7 @@ SOFTWARE.
 | | |
 |---------|-------------|
 | 📦 **GitHub Repository** | [https://github.com/yourusername/phishing-url-detection](https://github.com/yourusername/phishing-url-detection) |
-| 🌐 **Live Demo** | [https://phishing-url-detection.onrender.com](https://phishing-url-detection.onrender.com) |
+| 🌐 **Live Demo** | [https://phishing-url-detection.onrender.com](https://phishing-url-detector-1-0v55.onrender.com/) |
 | 📓 **Jupyter Notebook** | [View on Kaggle](https://kaggle.com/yourusername/phishing-detection) |
 
 ---
