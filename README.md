@@ -12,7 +12,7 @@
 
 **A powerful machine learning web application that detects phishing websites with 96% accuracy by analyzing URL patterns and characteristics.**
 
-[🌐 Live Demo]https://phishing-url-detector-1-0v55.onrender.com/) • 
+[🌐 Live Demo](https://phishing-url-detector-1-0v55.onrender.com/) • 
 [📖 Documentation](#) • 
 [🐛 Report Bug](https://github.com/yourusername/phishing-url-detection/issues) • 
 [✨ Request Feature](https://github.com/yourusername/phishing-url-detection/issues)
